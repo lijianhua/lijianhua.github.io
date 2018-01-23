@@ -180,16 +180,21 @@
     
     
         <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/20/使用satis搭建私有composer/" >
+            <a class="abstract-title" href = "/2017/03/21/从零开始搭建HEXO/" >
                 
-                    <span>使用satis搭建私有的Composer</span>
+                    <span>从零开始搭建HEXO</span>
             </a>
-            <a class="content-show-full" href = "/2018/01/20/使用satis搭建私有composer/" >
+            <a class="content-show-full" href = "/2017/03/21/从零开始搭建HEXO/" >
                 <div class="abstract-content">
-                    使用satis 搭建私有的Composer
-安装
-1234$ cd /User/Gubler/learn/laravel$ composer create-project composer/satis --stability=dev --keep-vcs$ cd satis$ vim satis.json
-1234567891011121314151617// statis.json&#123;    "name": "My Repository",    "homepage": "http://mypackages.com",    "repositories": [ // repos...
+                    起因一直有搭建个人博客的想法，并几次都付诸行动，以前用过Wordpress, Typecho，最后都因为各种原因下线或者放弃了，其中各种插件的以及部署问题已经忙的焦头烂额，最近又一次燃起了搭建个人博客的想法，通过各种产品之间的比较，最后我选中了Hexo，选中它的最大原因是因为不需要数据库，而且对环境要求较少。
+正文我使用Mac系统，安装Hexo时候的版本是hexo: 3.2.2，其他系统替换相应命令即可。
+
+安装前准备虽然Hexo对环境要求较少，但是安装前还是需要一些准备的
+
+Node.js
+Windows：nodejs官网安装
+Mac：brew install node
+Linux：c...
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -197,71 +202,21 @@
                 
                 <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = composer>composer</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = Hexo>Hexo</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-href = packagist>packagist</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = Typecho>Typecho</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-href = github>github</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = Wordpress>Wordpress</a>
     
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/20</span>
-                </div>
-            </div>
-        </article>
+        <a class="post-tag" href="javascript:void(0);" data-href = Github>Github</a>
     
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2017/03/28/composer整合github实现自动推送项目到packagist-org/" >
-                
-                    <span>composer整合github实现自动推送项目到packagist.org</span>
-            </a>
-            <a class="content-show-full" href = "/2017/03/28/composer整合github实现自动推送项目到packagist-org/" >
-                <div class="abstract-content">
-                    概念
-Composer
-PHP包管理工具（例如：Ruby的RubyGems, Nodejs的npm, Python的pip)
-
-
-Packagist.org
-composer  镜像
-中国镜像地址：https://pkg.phpcomposer.com
-
-
-Github
-GitHub 是一个面向开源及私有软件项目的托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名 GitHub。
-
-
-
-
-安装系统环境System：OS X EI Capitan (版本10.11.6)
-
-Composer
-
-安装Composer之前请确保安装了PHP
-
-12345678910$ curl -...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = composer>composer</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = packagist>packagist</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = github>github</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = Blog>Blog</a>
     
 </div>
                 
                 <!-- date  -->
                 <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/03/28</span>
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/03/21</span>
                 </div>
             </div>
         </article>
@@ -303,7 +258,7 @@ Composer
     
     <!-- powered by Hexo  -->
     <div class="copyright">
-        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a><p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p></span>
     </div>
     <!-- 不蒜子  -->
     
@@ -332,12 +287,6 @@ Composer
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
     
     
     
@@ -516,12 +465,6 @@ Composer
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name"><a href= "#">Nginx</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">反向代理</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">负载均衡</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">Docker</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Linux</a></span>
@@ -529,6 +472,18 @@ Composer
         <span class="sidebar-tag-name"><a href= "#">Windowns</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Max OS</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Nginx</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">反向代理</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">负载均衡</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">composer</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">packagist</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">github</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Hexo</a></span>
     
@@ -540,18 +495,6 @@ Composer
     
         <span class="sidebar-tag-name"><a href= "#">Blog</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">composer</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">packagist</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">github</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">SSL</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">HTTPS</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">Startssl</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">ELK</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">ElasticSearch</a></span>
@@ -560,10 +503,66 @@ Composer
     
         <span class="sidebar-tag-name"><a href= "#">Kiabana</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">SSL</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">HTTPS</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Startssl</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">yarn</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">npm</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">laravel</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+
+ 
         <span class="sidebar-tag-name"><a href= "#">laravel</a></span>
     
     </div>
