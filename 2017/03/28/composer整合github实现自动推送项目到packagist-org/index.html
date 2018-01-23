@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <meta name="google-site-verification" content="9EvSqFml9CFBYD8KCzUF3avY1sjQcsnf3v7VTEAgpts" />
+    <link rel="alternate" href="http://ljh.name" hreflang="zh-Hans" />
+    <link rel="alternate" href="http://ljh.name" hreflang="zh-Hant" />
+    <link rel="alternate" href="http://www.ljh.name" hreflang="zh-Hans" />
+    <link rel="alternate" href="http://www.ljh.name" hreflang="zh-Hant" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for(theme.favicon) }}?v={{ theme.version }}" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/images/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
+    <title>
+        
+        composer整合github实现自动推送项目到packagist.org · Li Jianhua
+        
+    </title>
+    <link rel="icon" href= /assets/favicon.ico>
+    <!-- TODO: 在font-face加载完毕后改变字体  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+    <!-- 提前加载place holder  -->
+    <style type="text/css">
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url(/font/Oswald-Regular.ttf);
+        }
+    </style>
+    <style type="text/css">
+        .site-intro {
+            position: relative;
+            width: 100%;
+            height: 50vh;
+            overflow: hidden;
+            box-shadow: -0.1rem 0 0.5rem 0 rgba(0, 0, 0, 0.5);
+        }
+        .site-intro-placeholder {
+            position: absolute;
+            z-index: -2;
+            top: 0;
+            left: 0px;
+            width: calc(100% + 300px);
+            height: 100%;
+            background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+            background-position: center center;
+            transform: translate3d(-226px, 0, 0);
+            animation: gradient-move 2.5s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+    <link rel="stylesheet" href = /css/style.css?v=20180120 />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Happy Hacking</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">composer整合github实现自动推送项目到packagist.org</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Happy Hacking</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(http://ong8z3v18.bkt.clouddn.com/timg-2.jpeg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            composer整合github实现自动推送项目到packagist.org
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = composer>composer</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = packagist>packagist</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = github>github</a>
+    
+</div>
+            
+            <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/03/28</span>
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe604;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">
+                        &#xe601;
+                    </span>
+                    <span class="bdsharebuttonbox">
+                        <a href="#" class="bds_more shareText" data-cmd="more">Share</a>
+                    </span>
+                </span>
+            </div>
+        
+    </div>
+</div>
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <script>
+            var browser = {
+                    versions: function () {
+                        var u = window.navigator.userAgent;
+                        return {
+                            userAgent: u,
+                            trident: u.indexOf('Trident') > -1, //IE内核
+                            presto: u.indexOf('Presto') > -1, //opera内核
+                            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                            iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+                            iPad: u.indexOf('iPad') > -1, //是否为iPad
+                            webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+                            weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+                            uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+                        };
+                    }()
+                }
+
+            function fontLoaded(){
+                console.log('font loaded');
+                if (document.getElementsByClassName('site-intro-meta')) {
+                    document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+                    document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+                    var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
+                        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
+                        if (postIntroTags) {
+                            postIntroTags.classList.add('post-fade-in');
+                        }
+                        if (postIntroMeat) {
+                            postIntroMeat.classList.add('post-fade-in');
+                        }
+                    }
+                }
+                
+            console.log("userAgent:" + browser.versions.userAgent);
+            // UC不支持跨域，所以直接显示
+            if (browser.versions.uc) {
+                console.log("UCBrowser");
+                fontLoaded();
+            } else {
+                WebFont.load({
+                    custom: {
+                        families: ['Oswald-Regular']
+                    },
+                    loading: function () {  //所有字体开始加载
+                        // console.log('loading');
+                    },
+                    active: function () {  //所有字体已渲染
+                        fontLoaded();
+                    },
+                    inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+                        console.log('inactive: timeout');
+                        fontLoaded();
+                    },
+                    timeout: 7000 // Set the timeout to two seconds
+                });
+            }
+        </script>
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li><a href="https://getcomposer.org" target="_blank" rel="noopener">Composer</a><ul>
+<li>PHP包管理工具（例如：Ruby的RubyGems, Nodejs的npm, Python的pip)</li>
+</ul>
+</li>
+<li><a href="https://packagist.org" target="_blank" rel="noopener">Packagist.org</a><ul>
+<li>composer  镜像</li>
+<li>中国镜像地址：<a href="https://pkg.phpcomposer.com" target="_blank" rel="noopener">https://pkg.phpcomposer.com</a></li>
+</ul>
+</li>
+<li><a href="https://www.github.com" target="_blank" rel="noopener">Github</a><ul>
+<li><em>GitHub</em> 是一个面向开源及私有软件项目的托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名 <em>GitHub</em>。</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h5 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h5><p>System：OS X EI Capitan (版本10.11.6)</p>
+<ul>
+<li><p>Composer</p>
+<blockquote>
+<p>安装Composer之前请确保安装了PHP</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ curl -sS https://getcomposer.org/installer | php <span class="comment"># 下载composer</span></span><br><span class="line">&gt;  <span class="comment">#!/usr/bin/env php</span></span><br><span class="line">All settings correct <span class="keyword">for</span> using Composer</span><br><span class="line">Downloading...</span><br><span class="line">&gt;</span><br><span class="line">&gt;Composer successfully installed to: /root/composer.phar</span><br><span class="line">&gt;Use it: php composer.phar  <span class="comment"># 会下载一个composer.phar文件</span></span><br><span class="line">$ mv composer.phar /usr/<span class="built_in">local</span>/bin/composer</span><br><span class="line">$ composer -V</span><br><span class="line">Composer version 1.1.1 <span class="comment"># 安装成功</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果下载不成功，可以 <a href="https://getcomposer.org/composer.phar" target="_blank" rel="noopener">download composer.phar</a></p>
+</blockquote>
+</li>
+</ul>
+<h5 id="提交composer-json-到github"><a href="#提交composer-json-到github" class="headerlink" title="提交composer.json 到github"></a>提交composer.json 到github</h5><ul>
+<li><p>在GitHub创建项目</p>
+<blockquote>
+<p>默认你已经有Github账号，并且懂得git基本操作</p>
+</blockquote>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/github-new-repo.png" alt="github-new-repo"></p>
+</li>
+</ul>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/github-create-repo.png" alt="github-create-repo"></p>
+<ul>
+<li><p>克隆项目到本地并且建立composer.json</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/lijianhua/demo.git demo <span class="comment"># 克隆项目</span></span><br><span class="line">$ <span class="built_in">cd</span> demo</span><br><span class="line">$ composer init <span class="comment"># 生成composer.json文件</span></span><br><span class="line"> Welcome to the Composer config generator</span><br></pre></td></tr></table></figure>
+<p>This command will guide you through creating your composer.json config.</p>
+<p>Package name (<vendor>/<name>) [root/demo]:lijianhua/demo# 设置你的package 名字<br>Description []: This a demo for build composer packagist .# 描述<br>Author [Li Jianhua <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#108;&#105;&#106;&#105;&#97;&#x6e;&#x68;&#117;&#97;&#95;&#111;&#111;&#112;&#64;&#49;&#x36;&#x33;&#x2e;&#99;&#111;&#x6d;">&#108;&#105;&#106;&#105;&#97;&#x6e;&#x68;&#117;&#97;&#95;&#111;&#111;&#112;&#64;&#49;&#x36;&#x33;&#x2e;&#99;&#111;&#x6d;</a>, n to skip]: # 作者信息<br>Minimum Stability []: dev # 稳定版本<br>Package Type (e.g. library, project, metapackage, composer-plugin) []: project # package 类型<br>License []: MIT # 开源协议 有五种：(BSD，Apache，GPL，LGPL，MIT)</name></vendor></p>
+<p>Define your dependencies.</p>
+<p>Would you like to define your dependencies (require) interactively [yes]? no </p>
+<h1 id="是否有依赖于别的package-这里选择no，-如果选yes会问以来名字和版本等"><a href="#是否有依赖于别的package-这里选择no，-如果选yes会问以来名字和版本等" class="headerlink" title="是否有依赖于别的package, 这里选择no， 如果选yes会问以来名字和版本等"></a>是否有依赖于别的package, 这里选择no， 如果选yes会问以来名字和版本等</h1><p>{                                                                                    </p>
+<pre><code>&quot;name&quot;: &quot;lijianhua/demo&quot;,                                                                                                                               
+&quot;description&quot;: &quot;demo&quot;,                                                           
+&quot;type&quot;: &quot;project&quot;,                                                               
+&quot;license&quot;: &quot;MIT&quot;,                                                                
+&quot;authors&quot;: [                                                                     
+    {                                                                            
+        &quot;name&quot;: &quot;Li Jianhua&quot;,                                                    
+        &quot;email&quot;: &quot;lijianhua_oop@163.com&quot;                                         
+    }                                                                            
+],                                                                               
+&quot;minimum-stability&quot;: &quot;dev&quot;,                                                      
+&quot;require&quot;: {}                                                                    
+</code></pre><p>}<br>Do you confirm generation [yes]? yes<br>Would you like the vendor directory added to your .gitignore [yes]? yes<br>$ ls<br>composer.json<br>$ git add composer.json<br>$ git commit -am ‘first commit’<br>$ git push -u origin master</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 现在你的项目就创建完毕了，并且提交到了Github上</span><br><span class="line"></span><br><span class="line">##### 建立GitHub和packagist.org的关联</span><br><span class="line"></span><br><span class="line">* 访问 packagist.org，并登陆，可以选择GitHub账号登陆,点击Submit</span><br><span class="line"></span><br><span class="line">  ![packagist-submit](http://ong8z3v18.bkt.clouddn.com/packagist-submit.png)</span><br><span class="line"></span><br><span class="line">* 复制Github地址，点击check后如果没有重名点击submit</span><br><span class="line"></span><br><span class="line">  ![package-check](http://ong8z3v18.bkt.clouddn.com/package-check.png)</span><br><span class="line"></span><br><span class="line">  &gt; 提示我已经创建，如果你第一次提示已经被创建，修改composer.json里的name 并且提交到GitHub，重新验证直到成功为止</span><br><span class="line"></span><br><span class="line">* 提交成功后，出现如下页面</span><br><span class="line"></span><br><span class="line">  ![package-show](http://ong8z3v18.bkt.clouddn.com/package-show.png)</span><br><span class="line"></span><br><span class="line">* 现在就可以通过命令来创建项目</span><br><span class="line"></span><br><span class="line">  ```bash</span><br><span class="line">  $ composer create-project lijianhua/demo a dev-master --prefer-dist </span><br><span class="line">  $ cd a</span><br><span class="line">  $ ls</span><br><span class="line">  composer.json # 代码已经成功创建到本地，</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>接下来我们回到package 的创建目录：demo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> demo</span><br><span class="line">$ vim index.php <span class="comment"># 创建index.php 添加如下代码</span></span><br><span class="line">$ cat index.php</span><br><span class="line">&lt;?php</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">'成功'</span>;</span><br><span class="line">?&gt;</span><br><span class="line">$ git add</span><br><span class="line">$ git commit -am <span class="string">'add index'</span></span><br><span class="line">$ git push origin master <span class="comment"># 此时查看GitHub，看见index.php已经提交</span></span><br><span class="line">$ <span class="built_in">cd</span> .. <span class="comment"># 退出demo目录</span></span><br><span class="line">$ composer create-project lijianhua/demo a2 dev-master --prefer-dist <span class="comment"># 创建项目a2</span></span><br><span class="line">$ <span class="built_in">cd</span> a2</span><br><span class="line">$ ls</span><br><span class="line">composer.json <span class="comment"># 发现没有index.php</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这时我们手动点击下图的update</p>
+</blockquote>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/package-show.png" alt="package-show"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ composer create-project lijianhua/demo a3 dev-master --prefer-dist <span class="comment"># 3</span></span><br><span class="line">$ <span class="built_in">cd</span> a3</span><br><span class="line">$ ls</span><br><span class="line">composer.json index.php <span class="comment"># 这时候index.php已经提交到packagist了</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>当然上述方法太过麻烦，下面我们展示自动推送</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="GitHub自动推送项目到packagist"><a href="#GitHub自动推送项目到packagist" class="headerlink" title="GitHub自动推送项目到packagist"></a>GitHub自动推送项目到packagist</h5><ul>
+<li><p>在Github 项目页点击setting，在出现的页面选择 services</p>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/github-setting.png" alt="github-setting"></p>
+</li>
+<li><p>点击add service, 在出现的框内选择packagist并添加</p>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/github-addservice.png" alt="github-addservice"></p>
+</li>
+<li><p>填写你的user 就是你的github用户名，Domain 就是 packagist的地址</p>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/github-package.png" alt="github-pack"></p>
+</li>
+<li><p>Token 在packagist 官网点击Profile-&gt;Show API Token，辅助内容到上图，保存就可以了。</p>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/package-token.png" alt="package-token"></p>
+<blockquote>
+<p>现在更新你demo后就会自动提交到packagist上，由于延迟等原因每次提交可能需要一点时间大概1分钟左右。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2017/03/29/如何配置SSL/" title= 如何配置SSL证书 >
+                    <span>Next Post</span>
+                    <span>如何配置SSL证书</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2017/03/26/开源实时日志分析ELK平台实践/" title= 开源实时日志分析ELK平台实践 >
+                    <span>Previous Post</span>
+                    <span>开源实时日志分析ELK平台实践</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        // id: "composer整合github实现自动推送项目到packagist.org", // 可选。默认为 location.href
+        owner: 'lijianhua_oop@163.com',
+        repo: 'blogljh',
+        oauth: {
+            client_id: '47f84d70eebcea0c065f',
+            client_secret: '56bd4df9ca4b2b4ff337c60b66f8cba545a5e2bf',
+        },
+    })
+    gitment.render('container')
+
+</script>
+
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:lijianhua_oop@163.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/lijianhua" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title="rss"></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+        <span id="busuanzi_container_site_pv">VISITOR VOLUME: <span id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+    
+    <div class="busuanzi-container">
+        <span id="busuanzi_container_site_pv"><a href="http://www.miitbeian.gov.cn/">黑ICP备15002574号</a></span>
+        
+    </div>
+</footer>
+
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#系统环境"><span class="toc-number">2.0.1.</span> <span class="toc-text">系统环境</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#提交composer-json-到github"><span class="toc-number">2.0.2.</span> <span class="toc-text">提交composer.json 到github</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#是否有依赖于别的package-这里选择no，-如果选yes会问以来名字和版本等"><span class="toc-number"></span> <span class="toc-text">是否有依赖于别的package, 这里选择no， 如果选yes会问以来名字和版本等</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#GitHub自动推送项目到packagist"><span class="toc-number">0.0.1.</span> <span class="toc-text">GitHub自动推送项目到packagist</span></a></li></ol></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header sidebar-header-show-archive">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 9 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/20</span><a class="archive-post-title" href= "/2018/01/20/使用satis搭建私有composer/" >使用satis搭建私有的Composer</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/27</span><a class="archive-post-title" href= "/2017/04/27/用yarn代替npm/" >用yarn代替npm</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/30</span><a class="archive-post-title" href= "/2017/03/30/Docker——安装/" >Docker——安装</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2017/03/29/如何配置SSL/" >如何配置SSL证书</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/28</span><a class="archive-post-title" href= "/2017/03/28/composer整合github实现自动推送项目到packagist-org/" >composer整合github实现自动推送项目到packagist.org</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/26</span><a class="archive-post-title" href= "/2017/03/26/开源实时日志分析ELK平台实践/" >开源实时日志分析ELK平台实践</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/24</span><a class="archive-post-title" href= "/2017/03/24/Docker——初探/" >Docker——初探</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/23</span><a class="archive-post-title" href= "/2017/03/23/Nginx反向代理和负载均衡/" >Nginx反向代理和负载均衡</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/21</span><a class="archive-post-title" href= "/2017/03/21/从零开始搭建HEXO/" >从零开始搭建HEXO</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">Docker</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Linux</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Windowns</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Max OS</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Nginx</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">反向代理</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">负载均衡</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Hexo</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Typecho</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Wordpress</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Github</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Blog</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">composer</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">packagist</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">github</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">SSL</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">HTTPS</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Startssl</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">ELK</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">ElasticSearch</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Logstash</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Kiabana</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">yarn</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">npm</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">laravel</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+

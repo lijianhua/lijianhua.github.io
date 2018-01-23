@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <meta name="google-site-verification" content="9EvSqFml9CFBYD8KCzUF3avY1sjQcsnf3v7VTEAgpts" />
+    <link rel="alternate" href="http://ljh.name" hreflang="zh-Hans" />
+    <link rel="alternate" href="http://ljh.name" hreflang="zh-Hant" />
+    <link rel="alternate" href="http://www.ljh.name" hreflang="zh-Hans" />
+    <link rel="alternate" href="http://www.ljh.name" hreflang="zh-Hant" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for(theme.favicon) }}?v={{ theme.version }}" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/images/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
+    <title>
+        
+        如何配置SSL证书 · Li Jianhua
+        
+    </title>
+    <link rel="icon" href= /assets/favicon.ico>
+    <!-- TODO: 在font-face加载完毕后改变字体  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+    <!-- 提前加载place holder  -->
+    <style type="text/css">
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url(/font/Oswald-Regular.ttf);
+        }
+    </style>
+    <style type="text/css">
+        .site-intro {
+            position: relative;
+            width: 100%;
+            height: 50vh;
+            overflow: hidden;
+            box-shadow: -0.1rem 0 0.5rem 0 rgba(0, 0, 0, 0.5);
+        }
+        .site-intro-placeholder {
+            position: absolute;
+            z-index: -2;
+            top: 0;
+            left: 0px;
+            width: calc(100% + 300px);
+            height: 100%;
+            background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+            background-position: center center;
+            transform: translate3d(-226px, 0, 0);
+            animation: gradient-move 2.5s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+    <link rel="stylesheet" href = /css/style.css?v=20180120 />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Happy Hacking</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">如何配置SSL证书</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Happy Hacking</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(http://ong8z3v18.bkt.clouddn.com/timg-2.jpeg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            如何配置SSL证书
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = SSL>SSL</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = HTTPS>HTTPS</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Startssl>Startssl</a>
+    
+</div>
+            
+            <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/03/29</span>
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe604;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">
+                        &#xe601;
+                    </span>
+                    <span class="bdsharebuttonbox">
+                        <a href="#" class="bds_more shareText" data-cmd="more">Share</a>
+                    </span>
+                </span>
+            </div>
+        
+    </div>
+</div>
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <script>
+            var browser = {
+                    versions: function () {
+                        var u = window.navigator.userAgent;
+                        return {
+                            userAgent: u,
+                            trident: u.indexOf('Trident') > -1, //IE内核
+                            presto: u.indexOf('Presto') > -1, //opera内核
+                            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                            iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+                            iPad: u.indexOf('iPad') > -1, //是否为iPad
+                            webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+                            weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+                            uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+                        };
+                    }()
+                }
+
+            function fontLoaded(){
+                console.log('font loaded');
+                if (document.getElementsByClassName('site-intro-meta')) {
+                    document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+                    document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+                    var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
+                        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
+                        if (postIntroTags) {
+                            postIntroTags.classList.add('post-fade-in');
+                        }
+                        if (postIntroMeat) {
+                            postIntroMeat.classList.add('post-fade-in');
+                        }
+                    }
+                }
+                
+            console.log("userAgent:" + browser.versions.userAgent);
+            // UC不支持跨域，所以直接显示
+            if (browser.versions.uc) {
+                console.log("UCBrowser");
+                fontLoaded();
+            } else {
+                WebFont.load({
+                    custom: {
+                        families: ['Oswald-Regular']
+                    },
+                    loading: function () {  //所有字体开始加载
+                        // console.log('loading');
+                    },
+                    active: function () {  //所有字体已渲染
+                        fontLoaded();
+                    },
+                    inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+                        console.log('inactive: timeout');
+                        fontLoaded();
+                    },
+                    timeout: 7000 // Set the timeout to two seconds
+                });
+            }
+        </script>
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h4 id="什么是SSL？"><a href="#什么是SSL？" class="headerlink" title="什么是SSL？"></a>什么是SSL？</h4><p><a href="http://baike.baidu.com/link?url=dQo5hplNvTsfm_Lcwq_1bHVmReQAsYM5uTxWLm2fx2zGKdcymmnO0uZjXED2vGao9qzo_jgWT7AOlF1qcKjiOa" target="_blank" rel="noopener">SSL</a>(Secure Sockets Layer <a href="http://baike.baidu.com/item/%E5%AE%89%E5%85%A8%E5%A5%97%E6%8E%A5%E5%B1%82" target="_blank" rel="noopener">安全套接层</a>),及其继任者<a href="http://baike.baidu.com/item/%E4%BC%A0%E8%BE%93%E5%B1%82%E5%AE%89%E5%85%A8" target="_blank" rel="noopener">传输层安全</a>（Transport Layer Security，TLS）是为<a href="http://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1" target="_blank" rel="noopener">网络通信</a>提供安全及<a href="http://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7" target="_blank" rel="noopener">数据完整性</a>的一种安全协议。TLS与SSL在<a href="http://baike.baidu.com/item/%E4%BC%A0%E8%BE%93%E5%B1%82" target="_blank" rel="noopener">传输层</a>对网络连接进行加密。</p>
+<a id="more"></a>
+<h4 id="为什么使用SSL"><a href="#为什么使用SSL" class="headerlink" title="为什么使用SSL?"></a>为什么使用SSL?</h4><p>机密性：SSL协议使用密钥加密通信数据。</p>
+<p>可靠性：服务器和客户都会被认证，客户的认证是可选的。</p>
+<p>完整性：SSL协议会对传送的数据进行完整性检查。</p>
+<h4 id="在哪申请SSL证书"><a href="#在哪申请SSL证书" class="headerlink" title="在哪申请SSL证书?"></a>在哪申请SSL证书?</h4><p><a href="https://www.startssl.com/" target="_blank" rel="noopener">Startssl免费证书</a> 推荐</p>
+<p><a href="https://letsencrypt.org/" target="_blank" rel="noopener">Letsencrypt证书</a> 推荐</p>
+<p><a href="https://freessl.wosign.com/" target="_blank" rel="noopener">Wosign免费证书</a></p>
+<h4 id="在Startssl-上申请-SSL证书"><a href="#在Startssl-上申请-SSL证书" class="headerlink" title="在Startssl 上申请 SSL证书"></a>在Startssl 上申请 SSL证书</h4><ul>
+<li><p>首先登陆到startssl并注册，两种登陆方式：证书登陆，需要你安装证书，还有一种就是发送密码到你的注册邮箱</p>
+</li>
+<li><p>登陆成功后会跳到如下页面，首先验证域名证明域名归你所有,点击</p>
+<p>Validations  Wizard填写域名并提交</p>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/validations.png" alt="validations"></p>
+</li>
+<li><p>进入域名所有者信息验证页，选择你的邮箱会发送一个验证码到你的邮箱，填写验证码提交，注册成功</p>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/validationmail.png" alt="validationsmail"></p>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/validation-success.png" alt="success"></p>
+<blockquote>
+<p>可能有的人找不到自己的邮箱，这是你开启了域名隐私保护，去域名管理的地方关闭一下，重新提交就找到你的邮箱了</p>
+</blockquote>
+</li>
+<li><p>点击Certificates Wizard,填写你的域名，子域名等，最多可以添加5个</p>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/certificates.png" alt="cerwiz"></p>
+</li>
+<li><p>填写域名后，下面需要生成CSR文件并且填入提交</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">$ openssl req -newkey rsa:2048 -keyout generate-favicon.key -out generate-favicon.csr <span class="comment"># 复制命令</span></span><br><span class="line">Generating a 2048 bit RSA private key</span><br><span class="line">................................................................................................................................................+++</span><br><span class="line">........................................+++</span><br><span class="line">writing new private key to <span class="string">'generate-favicon.key'</span></span><br><span class="line">Enter PEM pass phrase:   <span class="comment">#  解密需要的密码</span></span><br><span class="line">Verifying - Enter PEM pass phrase:</span><br><span class="line">-----</span><br><span class="line">You are about to be asked to enter information that will be incorporated</span><br><span class="line">into your certificate request.</span><br><span class="line">What you are about to enter is what is called a Distinguished Name or a DN.</span><br><span class="line">There are quite a few fields but you can leave some blank</span><br><span class="line">For some fields there will be a default value,</span><br><span class="line">If you enter <span class="string">'.'</span>, the field will be left blank.</span><br><span class="line">-----</span><br><span class="line">Country Name (2 letter code) [AU]:CN</span><br><span class="line">State or Province Name (full name) [Some-State]:Gubler</span><br><span class="line">Locality Name (eg, city) []:BJ</span><br><span class="line">Organization Name (eg, company) [Internet Widgits Pty Ltd]:</span><br><span class="line">Organizational Unit Name (eg, section) []:</span><br><span class="line">Common Name (e.g. server FQDN or YOUR name) []:gubler <span class="comment"># 提交人姓名</span></span><br><span class="line">Email Address []:lijianhua_oop@163.com <span class="comment">#提交人的邮箱</span></span><br><span class="line"></span><br><span class="line">Please enter the following <span class="string">'extra'</span> attributes</span><br><span class="line">to be sent with your certificate request</span><br><span class="line">A challenge password []:gubler </span><br><span class="line">An optional company name []:gubler</span><br><span class="line">$ ls</span><br><span class="line">generate-favicon.csr generate-favicon.key</span><br><span class="line">$ cat generate-favicon.csr <span class="comment"># 复制cat出来的内容，粘贴到SSL网站并且提交</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/csr.png" alt="csr"></p>
+</li>
+<li><p>提交成功后在返回的页面点击选中地方，下载一个文件</p>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/download-csr.png" alt="download"></p>
+</li>
+<li><p>文件是各种服务器需要的crt证书，我选择的是Nginx证书，解压后的文件用SCP发送到服务器</p>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/blog-server.png" alt="server"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scp 1_blog.generate-favicon.com_bundle.crt root@111.111.111.111:/</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="在Nginx配置SSL-证书"><a href="#在Nginx配置SSL-证书" class="headerlink" title="在Nginx配置SSL 证书"></a>在Nginx配置SSL 证书</h4><ul>
+<li><p>配置SSL证书需要两个文件一个是解压赌赢服务器文件所得的证书，例如：选择的NginxServer.zip解压缩的文件</p>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/csrblog.png" alt="csrblog"></p>
+</li>
+<li><p>另一个文件是解密我们生成的key文件所得的内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat generate-favicon.key <span class="comment"># 复制cat出的数据到startssl</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/decrypt.png" alt="decrypt"></p>
+<blockquote>
+<p>点击Tool  Box 选择Decrypt Private Key 复制cat出的数据到 Private key,</p>
+<p>Passphrase 输入之前生成文件时候设置的PEM pass phrase，点击Decrypt 复制解密的内容 粘贴到后缀名为.key的文件</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vim  generate-favicon_de.key <span class="comment"># 复制内容到这个文件，这就是配置所需要的第二个文件</span></span><br><span class="line">$ scp  generate-favicon_de.key root@111.111.111.111:/ <span class="comment"># 上传到服务器</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置nginx </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$ mv generate-favicon_de.key  1_blog.generate-favicon.com_bundle.crt /usr/<span class="built_in">local</span>/etc/nginx/ssl <span class="comment"># 移动两个文件到新建的SSL目录 不是必须的 我是为了方便找</span></span><br><span class="line">$ vim /usr/<span class="built_in">local</span>/etc/nginx/nginx.conf <span class="comment"># 打开默认配置文件，也可以是你网站所在的配置文件</span></span><br><span class="line"><span class="comment"># 去掉注释</span></span><br><span class="line"> server &#123;                                                                                                                                                </span><br><span class="line">        listen       443 ssl;                                                        </span><br><span class="line">        server_name  localhost; <span class="comment"># 你网站的域名         </span></span><br><span class="line">                                                                                     </span><br><span class="line">        ssl_certificate      /usr/<span class="built_in">local</span>/etc/nginx/ssl/1_blog.generate-favicon.com_bundle.crt; <span class="comment">#crt文件的目录</span></span><br><span class="line">        ssl_certificate_key /usr/<span class="built_in">local</span>/etc/nginx/ssl/generate-favicon_de.key;   <span class="comment"># key 文件的目录</span></span><br><span class="line">                                                                                     </span><br><span class="line">        ssl_session_cache    shared:SSL:1m;                                          </span><br><span class="line">        ssl_session_timeout  5m;                                                     </span><br><span class="line">                                                                                     </span><br><span class="line">        ssl_ciphers  HIGH:!aNULL:!MD5;                                               </span><br><span class="line">        ssl_prefer_server_ciphers  on;                                               </span><br><span class="line">        <span class="comment"># 和你网站server里的配置一样</span></span><br><span class="line">        <span class="built_in">return</span> 301 https://domain.com<span class="variable">$request_uri</span>; <span class="comment"># 指向的你网站，这样无论访问http,https都会到https</span></span><br><span class="line">        location / &#123;                                                                 </span><br><span class="line">            root   html;                                                             </span><br><span class="line">            index  index.html index.htm;                                             </span><br><span class="line">        &#125;                                                                            </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="SSL等级检测"><a href="#SSL等级检测" class="headerlink" title="SSL等级检测"></a>SSL等级检测</h4><h5 id="访问https-www-ssllabs-com-ssltest-填写域名点击提交大概两分钟左右，输出如下信息"><a href="#访问https-www-ssllabs-com-ssltest-填写域名点击提交大概两分钟左右，输出如下信息" class="headerlink" title="访问https://www.ssllabs.com/ssltest/ ,填写域名点击提交大概两分钟左右，输出如下信息"></a>访问<a href="https://www.ssllabs.com/ssltest/" target="_blank" rel="noopener">https://www.ssllabs.com/ssltest/</a> ,填写域名点击提交大概两分钟左右，输出如下信息</h5><p><img src="http://ong8z3v18.bkt.clouddn.com/summary.png" alt="summary"></p>
+<blockquote>
+<p>等级是B，有的是C，可以看看对应等级所欠缺的</p>
+</blockquote>
+<h5 id="提高SSL等级"><a href="#提高SSL等级" class="headerlink" title="提高SSL等级"></a>提高SSL等级</h5><ul>
+<li><p>GitHub 上有一个开源项目<a href="https://github.com/lijianhua/server-configs-nginx" target="_blank" rel="noopener">server-configs-nginx</a> 地址是我fork的项目，server-configs-nginx/h5bp/directive-only/ssl.conf 的文件 复制这三行到你的配置内；在测试应该可以达到A</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssl_protocols TLSv1 TLSv1.1 TLSv1.2; <span class="comment"># 第三行</span></span><br><span class="line">ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-RSA-DES-CBC3-SHA:ECDHE-ECDSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA;</span><br><span class="line">ssl_prefer_server_ciphers  on;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Github上一个开源的项目<a href="https://mozilla.github.io/server-side-tls/ssl-config-generator/" target="_blank" rel="noopener">mozilla/server-side-tls </a> 会基于不同服务器版本生成不同增强型 SSL 配置；并且加入 HSTS 特性支持.</p>
+<blockquote>
+<p>HSTS的作用是强制客户端（如浏览器）使用HTTPS与服务器创建连接。</p>
+</blockquote>
+</li>
+</ul>
+<p>（完）</p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2017/03/30/Docker——安装/" title= Docker——安装 >
+                    <span>Next Post</span>
+                    <span>Docker——安装</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2017/03/28/composer整合github实现自动推送项目到packagist-org/" title= composer整合github实现自动推送项目到packagist.org >
+                    <span>Previous Post</span>
+                    <span>composer整合github实现自动推送项目到packagist.org</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        // id: "如何配置SSL证书", // 可选。默认为 location.href
+        owner: 'lijianhua_oop@163.com',
+        repo: 'blogljh',
+        oauth: {
+            client_id: '47f84d70eebcea0c065f',
+            client_secret: '56bd4df9ca4b2b4ff337c60b66f8cba545a5e2bf',
+        },
+    })
+    gitment.render('container')
+
+</script>
+
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:lijianhua_oop@163.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/lijianhua" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title="rss"></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+        <span id="busuanzi_container_site_pv">VISITOR VOLUME: <span id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+    
+    <div class="busuanzi-container">
+        <span id="busuanzi_container_site_pv"><a href="http://www.miitbeian.gov.cn/">黑ICP备15002574号</a></span>
+        
+    </div>
+</footer>
+
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是SSL？"><span class="toc-number">1.</span> <span class="toc-text">什么是SSL？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#为什么使用SSL"><span class="toc-number">2.</span> <span class="toc-text">为什么使用SSL?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在哪申请SSL证书"><span class="toc-number">3.</span> <span class="toc-text">在哪申请SSL证书?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在Startssl-上申请-SSL证书"><span class="toc-number">4.</span> <span class="toc-text">在Startssl 上申请 SSL证书</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在Nginx配置SSL-证书"><span class="toc-number">5.</span> <span class="toc-text">在Nginx配置SSL 证书</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SSL等级检测"><span class="toc-number">6.</span> <span class="toc-text">SSL等级检测</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#访问https-www-ssllabs-com-ssltest-填写域名点击提交大概两分钟左右，输出如下信息"><span class="toc-number">6.1.</span> <span class="toc-text">访问https://www.ssllabs.com/ssltest/ ,填写域名点击提交大概两分钟左右，输出如下信息</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#提高SSL等级"><span class="toc-number">6.2.</span> <span class="toc-text">提高SSL等级</span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header sidebar-header-show-archive">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 9 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/20</span><a class="archive-post-title" href= "/2018/01/20/使用satis搭建私有composer/" >使用satis搭建私有的Composer</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/27</span><a class="archive-post-title" href= "/2017/04/27/用yarn代替npm/" >用yarn代替npm</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/30</span><a class="archive-post-title" href= "/2017/03/30/Docker——安装/" >Docker——安装</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2017/03/29/如何配置SSL/" >如何配置SSL证书</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/28</span><a class="archive-post-title" href= "/2017/03/28/composer整合github实现自动推送项目到packagist-org/" >composer整合github实现自动推送项目到packagist.org</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/26</span><a class="archive-post-title" href= "/2017/03/26/开源实时日志分析ELK平台实践/" >开源实时日志分析ELK平台实践</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/24</span><a class="archive-post-title" href= "/2017/03/24/Docker——初探/" >Docker——初探</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/23</span><a class="archive-post-title" href= "/2017/03/23/Nginx反向代理和负载均衡/" >Nginx反向代理和负载均衡</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/21</span><a class="archive-post-title" href= "/2017/03/21/从零开始搭建HEXO/" >从零开始搭建HEXO</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">Docker</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Linux</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Windowns</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Max OS</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Nginx</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">反向代理</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">负载均衡</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Hexo</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Typecho</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Wordpress</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Github</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Blog</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">composer</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">packagist</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">github</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">SSL</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">HTTPS</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Startssl</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">ELK</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">ElasticSearch</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Logstash</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Kiabana</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">yarn</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">npm</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">laravel</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <meta name="google-site-verification" content="9EvSqFml9CFBYD8KCzUF3avY1sjQcsnf3v7VTEAgpts" />
+    <link rel="alternate" href="http://ljh.name" hreflang="zh-Hans" />
+    <link rel="alternate" href="http://ljh.name" hreflang="zh-Hant" />
+    <link rel="alternate" href="http://www.ljh.name" hreflang="zh-Hans" />
+    <link rel="alternate" href="http://www.ljh.name" hreflang="zh-Hant" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for(theme.favicon) }}?v={{ theme.version }}" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/images/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
+    <title>
+        
+        开源实时日志分析ELK平台实践 · Li Jianhua
+        
+    </title>
+    <link rel="icon" href= /assets/favicon.ico>
+    <!-- TODO: 在font-face加载完毕后改变字体  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+    <!-- 提前加载place holder  -->
+    <style type="text/css">
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url(/font/Oswald-Regular.ttf);
+        }
+    </style>
+    <style type="text/css">
+        .site-intro {
+            position: relative;
+            width: 100%;
+            height: 50vh;
+            overflow: hidden;
+            box-shadow: -0.1rem 0 0.5rem 0 rgba(0, 0, 0, 0.5);
+        }
+        .site-intro-placeholder {
+            position: absolute;
+            z-index: -2;
+            top: 0;
+            left: 0px;
+            width: calc(100% + 300px);
+            height: 100%;
+            background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+            background-position: center center;
+            transform: translate3d(-226px, 0, 0);
+            animation: gradient-move 2.5s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+    <link rel="stylesheet" href = /css/style.css?v=20180120 />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Happy Hacking</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">开源实时日志分析ELK平台实践</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>Happy Hacking</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(http://ong8z3v18.bkt.clouddn.com/timg-2.jpeg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            开源实时日志分析ELK平台实践
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = ELK>ELK</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = ElasticSearch>ElasticSearch</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Logstash>Logstash</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Kiabana>Kiabana</a>
+    
+</div>
+            
+            <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/03/26</span>
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe604;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">
+                        &#xe601;
+                    </span>
+                    <span class="bdsharebuttonbox">
+                        <a href="#" class="bds_more shareText" data-cmd="more">Share</a>
+                    </span>
+                </span>
+            </div>
+        
+    </div>
+</div>
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <script>
+            var browser = {
+                    versions: function () {
+                        var u = window.navigator.userAgent;
+                        return {
+                            userAgent: u,
+                            trident: u.indexOf('Trident') > -1, //IE内核
+                            presto: u.indexOf('Presto') > -1, //opera内核
+                            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                            iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+                            iPad: u.indexOf('iPad') > -1, //是否为iPad
+                            webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+                            weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+                            uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+                        };
+                    }()
+                }
+
+            function fontLoaded(){
+                console.log('font loaded');
+                if (document.getElementsByClassName('site-intro-meta')) {
+                    document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+                    document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+                    var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
+                        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
+                        if (postIntroTags) {
+                            postIntroTags.classList.add('post-fade-in');
+                        }
+                        if (postIntroMeat) {
+                            postIntroMeat.classList.add('post-fade-in');
+                        }
+                    }
+                }
+                
+            console.log("userAgent:" + browser.versions.userAgent);
+            // UC不支持跨域，所以直接显示
+            if (browser.versions.uc) {
+                console.log("UCBrowser");
+                fontLoaded();
+            } else {
+                WebFont.load({
+                    custom: {
+                        families: ['Oswald-Regular']
+                    },
+                    loading: function () {  //所有字体开始加载
+                        // console.log('loading');
+                    },
+                    active: function () {  //所有字体已渲染
+                        fontLoaded();
+                    },
+                    inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+                        console.log('inactive: timeout');
+                        fontLoaded();
+                    },
+                    timeout: 7000 // Set the timeout to two seconds
+                });
+            }
+        </script>
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>周末参加活动看见别人分享的<a href="https://leo108.com/pid-2256.asp" target="_blank" rel="noopener">MONOLOG优化及打造ELK友好的日志格式</a> ，会后了解了下ELK，看见网上最新的资料比较少，大多是过去的版本，不同版本的配置有些许区别，所以花了一点时间学习了下，记录下来分享一下，希望对你有用，话不多说，下面开始。</p>
+<h4 id="ELK是什么？"><a href="#ELK是什么？" class="headerlink" title="ELK是什么？"></a>ELK是什么？</h4><blockquote>
+<p>ELK由ElasticSearch、Logstash和Kiabana三个开源工具组成，作用是集中化管理日志，而且对于日志的统计、检索、排序等操作有很好的支持</p>
+</blockquote>
+<h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><blockquote>
+<p>ELK 官方网址 <a href="https://www.elastic.co/products" target="_blank" rel="noopener">https://www.elastic.co/products</a></p>
+</blockquote>
+<ul>
+<li>Elasticsearch是个开源分布式搜索引擎，它的特点有：分布式，零配置，自动发现，索引自动分片，索引副本机制，restful风格接口，多数据源，自动搜索负载等。</li>
+<li>Logstash是一个完全开源的工具，他可以对你的日志进行收集、分析，并将其存储供以后使用（如，搜索)。</li>
+<li>Kibana 也是一个开源和免费的工具，他Kibana可以为 Logstash 和 ElasticSearch 提供的日志分析友好的 Web 界面，可以帮助您汇总、分析和搜索重要数据日志。</li>
+</ul>
+<a id="more"></a>
+<h4 id="为什么用ELK"><a href="#为什么用ELK" class="headerlink" title="为什么用ELK?"></a>为什么用ELK?</h4><p>日志主要包括系统日志、应用程序日志和安全日志。系统运维和开发人员可以通过日志了解服务器软硬件信息、检查配置过程中的错误及错误发生的原因。经常分析日志可以了解服务器的负荷，性能安全性，从而及时采取措施纠正错误。<br>&lt; !– more –&gt;<br>通常，日志被分散的储存不同的设备上。如果你管理数十上百台服务器，你还在使用依次登录每台机器的传统方法查阅日志。这样是不是感觉很繁琐和效率低下。当务之急我们使用集中化的日志管理，例如：开源的syslog，将所有服务器上的日志收集汇总。</p>
+<p>集中化管理日志后，日志的统计和检索又成为一件比较麻烦的事情，一般我们使用grep、awk和wc等Linux命令能实现检索和统计，但是对于要求更高的查询、排序和统计等要求和庞大的机器数量依然使用这样的方法难免有点力不从心。ELK完美的解决了如上问题，因此它是开发人员和运维人员不错的选择。<a href="http://baidu.blog.51cto.com/71938/1676798" target="_blank" rel="noopener">以上内容来源网络</a></p>
+<h4 id="ELK安装和配置"><a href="#ELK安装和配置" class="headerlink" title="ELK安装和配置"></a>ELK安装和配置</h4><h5 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h5><p>System：OS X EI Capitan (版本10.11.6)</p>
+<p>ElasticSearch: 5.2.2</p>
+<p>Logstash: 5.2.2</p>
+<p>Kibana: 5.2.2</p>
+<p>Java：java version “1.8.0_121”</p>
+<blockquote>
+<p>由于Logstash的运行依赖于Java环境， 推荐使用最新版本的Java。因为我们只需要Java的运行环境，所以可以只安装JRE，不过这里我依然使用JDK。</p>
+<p>建议使用同一时期最细版本的ELK</p>
+</blockquote>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ul>
+<li><p>Java jdk</p>
+<ul>
+<li><p>地址：<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">JDK</a></p>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/jdk.png" alt="jdk"></p>
+</li>
+<li><p>选择Accept License Agreement，选择你系统对应版本，这里我选择<a href="http://www.oracle.com/technetwork/java/javase/downloads/javascript: void(0" target="_blank" rel="noopener">jdk-8u121-macosx-x64.dmg</a>) 傻瓜版</p>
+<blockquote>
+<p>可能遇见问题，点击安装后一直显示正在验证，重启解决</p>
+</blockquote>
+</li>
+<li><p>安装成功后，环境变量设置</p>
+<ul>
+<li><p>JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home     </p>
+</li>
+<li><p>PATH=$JAVA_HOME/bin:$PATH  </p>
+</li>
+<li><p>CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</p>
+</li>
+<li><p>export    JAVA_HOME, PATH, CLASSPATH</p>
+<blockquote>
+<p>把环境变量加入你用的shell，我的的zsh，例如vim .zshrc                                   </p>
+</blockquote>
+</li>
+<li><p>接下来验证JAVA是否安装成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ java -version</span><br><span class="line">java version <span class="string">"1.8.0_121"</span></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_121-b13)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Logstash </p>
+<ul>
+<li><p>地址：<a href="https://www.elastic.co/downloads，" target="_blank" rel="noopener">https://www.elastic.co/downloads，</a> 我们可以看到ELK三个产品</p>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/elastic.png" alt="elastic"></p>
+</li>
+<li><p>点击 Download，选择你系统对应的文件下载，这里我选择的tar.gz</p>
+</li>
+<li><p>下载完成后解压到你指定的目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxf logstash-5.2.2.tar -C /usr/<span class="built_in">local</span>/</span><br><span class="line">$ /usr/<span class="built_in">local</span>/logstash-5.2.2/bin/logstash -e <span class="string">"input &#123;stdin&#123;&#125;&#125; output &#123;stdout&#123;&#125;&#125;"</span> <span class="comment">#通过-e参数指定logstash的配置信息，用于快速测试，直接输出到屏幕</span></span><br><span class="line">Sending Logstash<span class="string">'s logs to /usr/local/logstash-5.2.2/logs which is now configured via log4j2.properties</span></span><br><span class="line"><span class="string">[2017-03-26T21:09:36,336][INFO ][logstash.pipeline        ] Starting pipeline &#123;"id"=&gt;"main", "pipeline.workers"=&gt;4, "pipeline.batch.size"=&gt;125, "pipeline.batch.delay"=&gt;5, "pipeline.max_inflight"=&gt;500&#125;</span></span><br><span class="line"><span class="string">[2017-03-26T21:09:36,371][INFO ][logstash.pipeline        ] Pipeline main started</span></span><br><span class="line"><span class="string">The stdin plugin is now waiting for input:</span></span><br><span class="line"><span class="string">[2017-03-26T21:09:36,512][INFO ][logstash.agent           ] Successfully started Logstash API endpoint &#123;:port=&gt;9600&#125;</span></span><br><span class="line"><span class="string">my name is lijianhua # 手动输入回车等待几秒返回结果</span></span><br><span class="line"><span class="string">2017-03-26T13:09:49.174Z Gubler.lan my name is lijianhua</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>以上logstash 安装成功了</p>
+</blockquote>
+</li>
+<li><p>logstash有两个常用的参数</p>
+<ul>
+<li>-e :指定logstash的配置信息，可以用于快速测试</li>
+<li>-f :指定logstash的配置文件；可以用于生产环境</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Elasticsearch</p>
+<ul>
+<li><p>点击 Download，选择你系统对应的文件下载，这里我选择的tar</p>
+</li>
+<li><p>下载完成后解压到你指定的目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxf elasticsearch-5.2.2.tar -C /usr/<span class="built_in">local</span>/</span><br><span class="line">$ vim /usr/<span class="built_in">local</span>/elasticsearch-1.7.2/config/elasticsearch.yml <span class="comment"># 修改配置信息，去掉'#'号</span></span><br><span class="line">cluster.name=elasticsearch</span><br><span class="line">配置的集群名称，默认是elasticsearch，es服务会通过广播方式自动连接在同一网段下的es服务，通过多播方式进行通信，同一网段下可以有多个集群，通过集群名称这个属性来区分不同的集群。</span><br><span class="line">node.name=node0</span><br><span class="line">当前配置所在机器的节点名，你不设置就默认随机指定一个name列表中名字，该name列表在es的jar包中config文件夹里name.txt文件中，其中有很多作者添加的有趣名字</span><br><span class="line">network.port=9200</span><br><span class="line">设置对外服务的http端口，默认为9200。</span><br><span class="line">$ /usr/<span class="built_in">local</span>/elasticsearch-5.2.2/bin/elasticsearch</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="http://www.cnblogs.com/hanyouchun/p/5163183.html" target="_blank" rel="noopener">更多配置信息参考</a> </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">浏览器输入：http://localhost:9200，输出如下信息：</span><br><span class="line">&#123;</span><br><span class="line">  &quot;name&quot; : &quot;node-1&quot;,</span><br><span class="line">  &quot;cluster_name&quot; : &quot;test-elasticsearch&quot;,</span><br><span class="line">  &quot;cluster_uuid&quot; : &quot;kimjdc71S6W54DXaB3Fl0A&quot;,</span><br><span class="line">  &quot;version&quot; : &#123;</span><br><span class="line">    &quot;number&quot; : &quot;5.2.2&quot;,</span><br><span class="line">    &quot;build_hash&quot; : &quot;f9d9b74&quot;,</span><br><span class="line">    &quot;build_date&quot; : &quot;2017-02-24T17:26:45.835Z&quot;,</span><br><span class="line">    &quot;build_snapshot&quot; : false,</span><br><span class="line">    &quot;lucene_version&quot; : &quot;6.4.1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;tagline&quot; : &quot;You Know, for Search&quot;</span><br><span class="line">&#125;</span><br><span class="line">安装成功</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装Elasticsearch HEAD插件</p>
+<blockquote>
+<p>elasticsearch-head是一个elasticsearch的集群管理工具，它是完全由HTML5编写的独立网页程序，你可以通过插件把它集成到ES</p>
+<p>网上安装方法很多，没几个成功的，可能是版本原因，所以我直接从Github上下一个</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git://github.com/mobz/elasticsearch-head.git</span><br><span class="line">$ <span class="built_in">cd</span> elasticsearch-head</span><br><span class="line">$ npm install <span class="comment"># 由于head基于nodejs</span></span><br><span class="line">$ grunt server</span><br><span class="line"><span class="comment"># 浏览器访问 http://localhost:9100/</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/es-head.png" alt="es-head"></p>
+<blockquote>
+<p>这里可能遇见问题 “集群健康值: 未连接”</p>
+<p>修改elasticsearch.yml文件</p>
+<p><code># 增加如下字段</code></p>
+<p><code>http.cors.enabled: true</code></p>
+<p><code>http.cors.allow-origin: &quot;*&quot;</code></p>
+<p>重启ES和HEAD就可以了</p>
+</blockquote>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/es-head-1.png" alt="es-head-1"></p>
+<ul>
+<li>切换到Browser标签</li>
+</ul>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/es-head-2.png" alt="es-head-2"></p>
+<ul>
+<li>单击某一个文档（doc），则会展示该文档的所有信息</li>
+</ul>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/es-head-3.png" alt="es-head-2"></p>
+</li>
+</ul>
+</li>
+<li><p>Kinaba</p>
+<ul>
+<li><p>点击 Download，选择你系统对应的文件下载，这里我选择的mac，下载完是.tar文件</p>
+</li>
+<li><p>下载完成后解压到你指定的目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxf kibana-5.2.2-darwin-x86_64.tar -C /usr/<span class="built_in">local</span>/</span><br><span class="line">$ /usr/<span class="built_in">local</span>/kibana-5.2.2-darwin-x86_64/bin/kibana</span><br><span class="line">浏览器访问http://localhost:5601/ 就可以查看安装成功了</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/kibana.png" alt="kinaba"></p>
+</li>
+</ul>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><blockquote>
+<p>先在我们ELK都安装完了，接下来是如何关联在一起了</p>
+</blockquote>
+<ul>
+<li><p>Logstash 配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/logstash-5.2.2/config</span><br><span class="line">$ vim elasticsearche.conf <span class="comment">#新建配置文件</span></span><br><span class="line">$ cat elasticsearche.conf</span><br><span class="line">input &#123;</span><br><span class="line">  file &#123;</span><br><span class="line">        path =&gt; <span class="string">"/myapp/storage/logs/lumen.log"</span> <span class="comment"># 日志文件目录</span></span><br><span class="line">        start_position =&gt; <span class="string">"beginning"</span> <span class="comment">#从文件开始处读写</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">filter &#123;</span><br><span class="line">  <span class="comment">#定义数据的格式</span></span><br><span class="line">  grok &#123;</span><br><span class="line">    match =&gt; &#123; <span class="string">"message"</span> =&gt;</span><br><span class="line"><span class="string">"%&#123;DATA:timestamp&#125;\|%&#123;IP:serverIp&#125;\|%&#123;IP:clientIp&#125;\|%&#123;DATA:logSource&#125;\|%&#123;DATA:userId&#125;\|%&#123;DATA:reqUrl&#125;\|%&#123;DATA:reqUri&#125;\|%&#123;DATA:refer&#125;\|%&#123;DATA:device&#125;\|%&#123;DATA:textDuring&#125;\|%&#123;DATA:duringTime:int&#125;\|\|"</span> &#125;</span><br><span class="line">	// 对应的日志格式为</span><br><span class="line">	/**</span><br><span class="line">	2015-05-07-16:03:04|10.4.29.158|120.131.74.116|WEB|11299073|http://quxue.renren.com/shareApp?isappinstalled=0&amp;userId=11299073&amp;from=groupmessage|/shareApp|null|Mozilla/5.0 (iPhone; CPU iPhone OS 8_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12D508 MicroMessenger/6.1.5 NetType/WIFI|duringTime|98||</span><br><span class="line">	*/</span><br><span class="line">  </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">output &#123;</span><br><span class="line">  <span class="comment">#将输出保存到elasticsearch，如果没有匹配到时间就不保存，因为日志里的网址参数有些带有换行, 注意网上有的配置写的是host，总会报错，查了下在某一版本改成了hosts</span></span><br><span class="line">  <span class="keyword">if</span> [timestamp] =~ /^\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;/ &#123;</span><br><span class="line">        elasticsearch &#123; hosts =&gt; localhost&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>定义数据格式很重要，不然会匹配不出你的日志至于如何写，参考<a href="https://github.com/elastic/logstash/blob/v1.4.2/patterns/grok-patterns" target="_blank" rel="noopener">elastic/logstash</a> 这个是定义好的</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/logstash-5.2.2/bin/logstash -f /usr/<span class="built_in">local</span>/logstash-5.2.2/config/elasticsearche.conf </span><br><span class="line"><span class="comment">#以这个配置文件运行logstash</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>Kinaba 配置</p>
+<ul>
+<li><p>第一次访问kibana会重定向到设置索引的页面,如果输入logstash-*就是匹配所有的索引，还可以指定日期，logstash的索引是按日期区分的，一个日期一个文件夹</p>
+</li>
+<li><p>create 之后点击Discover就可以查看分组的日志和实时日志。</p>
+<p><img src="http://ong8z3v18.bkt.clouddn.com/kibana-discover.png" alt="kibana-discover"></p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>参考文章：<a href="http://baidu.blog.51cto.com/71938/1676798" target="_blank" rel="noopener">http://baidu.blog.51cto.com/71938/1676798</a></p>
+</blockquote>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2017/03/28/composer整合github实现自动推送项目到packagist-org/" title= composer整合github实现自动推送项目到packagist.org >
+                    <span>Next Post</span>
+                    <span>composer整合github实现自动推送项目到packagist.org</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2017/03/24/Docker——初探/" title= Docker——初探 >
+                    <span>Previous Post</span>
+                    <span>Docker——初探</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        // id: "开源实时日志分析ELK平台实践", // 可选。默认为 location.href
+        owner: 'lijianhua_oop@163.com',
+        repo: 'blogljh',
+        oauth: {
+            client_id: '47f84d70eebcea0c065f',
+            client_secret: '56bd4df9ca4b2b4ff337c60b66f8cba545a5e2bf',
+        },
+    })
+    gitment.render('container')
+
+</script>
+
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:lijianhua_oop@163.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/lijianhua" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+            
+                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title="rss"></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+        <span id="busuanzi_container_site_pv">VISITOR VOLUME: <span id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+    
+    <div class="busuanzi-container">
+        <span id="busuanzi_container_site_pv"><a href="http://www.miitbeian.gov.cn/">黑ICP备15002574号</a></span>
+        
+    </div>
+</footer>
+
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#ELK是什么？"><span class="toc-number">1.</span> <span class="toc-text">ELK是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#概述"><span class="toc-number">2.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#为什么用ELK"><span class="toc-number">3.</span> <span class="toc-text">为什么用ELK?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ELK安装和配置"><span class="toc-number">4.</span> <span class="toc-text">ELK安装和配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#系统环境"><span class="toc-number">4.1.</span> <span class="toc-text">系统环境</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装"><span class="toc-number">5.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置"><span class="toc-number">6.</span> <span class="toc-text">配置</span></a></li></ol>
+    </div>
+    
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header sidebar-header-show-archive">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 9 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/20</span><a class="archive-post-title" href= "/2018/01/20/使用satis搭建私有composer/" >使用satis搭建私有的Composer</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/27</span><a class="archive-post-title" href= "/2017/04/27/用yarn代替npm/" >用yarn代替npm</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/30</span><a class="archive-post-title" href= "/2017/03/30/Docker——安装/" >Docker——安装</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2017/03/29/如何配置SSL/" >如何配置SSL证书</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/28</span><a class="archive-post-title" href= "/2017/03/28/composer整合github实现自动推送项目到packagist-org/" >composer整合github实现自动推送项目到packagist.org</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/26</span><a class="archive-post-title" href= "/2017/03/26/开源实时日志分析ELK平台实践/" >开源实时日志分析ELK平台实践</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/24</span><a class="archive-post-title" href= "/2017/03/24/Docker——初探/" >Docker——初探</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/23</span><a class="archive-post-title" href= "/2017/03/23/Nginx反向代理和负载均衡/" >Nginx反向代理和负载均衡</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/21</span><a class="archive-post-title" href= "/2017/03/21/从零开始搭建HEXO/" >从零开始搭建HEXO</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">Docker</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Linux</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Windowns</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Max OS</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Nginx</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">反向代理</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">负载均衡</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Hexo</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Typecho</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Wordpress</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Github</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Blog</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">composer</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">packagist</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">github</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">SSL</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">HTTPS</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Startssl</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">ELK</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">ElasticSearch</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Logstash</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Kiabana</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">yarn</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">npm</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">laravel</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+
